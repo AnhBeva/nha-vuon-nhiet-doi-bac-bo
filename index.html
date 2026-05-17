@@ -6,114 +6,280 @@
   <title>Nền Tảng Học Thiết Kế Nhà Và Vườn Nhiệt Đới Bắc Bộ</title>
   <style>
     :root {
-      --bg: #f4f6f5;
-      --paper: #ffffff;
-      --text: #1f2423;
-      --muted: #63706c;
-      --line: #d8dfdc;
-      --accent: #276749;
-      --accent-2: #9a5b3d;
-      --soft: #e8f0ec;
+      --lumi-green: #008B51;
+      --lumi-green-deep: #006B3F;
+      --lumi-mint: #E6F4EE;
+      --lumi-pale: #F3FAF6;
+      --text: #1F2933;
+      --muted: #4B5563;
+      --line: #DDE5E1;
+      --surface: #FFFFFF;
+      --code: #13251D;
+      --warn: #8A5B16;
     }
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
+      font-family: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, var(--lumi-pale) 0, #f8faf9 360px, #eef3f1 100%);
       color: var(--text);
-      line-height: 1.65;
+      line-height: 1.68;
       letter-spacing: 0;
     }
-    header {
+    a { color: var(--lumi-green-deep); }
+    .site-header {
       border-bottom: 1px solid var(--line);
-      background: rgba(255,255,255,.96);
+      background: rgba(255,255,255,.97);
       position: sticky;
       top: 0;
-      z-index: 5;
-      backdrop-filter: blur(16px);
+      z-index: 10;
+      backdrop-filter: blur(18px);
     }
     .top {
-      max-width: 1400px;
+      max-width: 1480px;
       margin: 0 auto;
-      padding: 18px 28px;
+      padding: 14px 28px;
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 20px;
+      grid-template-columns: auto 1fr auto;
+      gap: 22px;
       align-items: center;
     }
-    h1, h2, h3, h4 { line-height: 1.2; letter-spacing: 0; }
-    .brand h1 { font-size: clamp(22px, 3vw, 38px); margin: 0 0 6px; }
-    .brand p { margin: 0; color: var(--muted); max-width: 860px; }
-    .stats { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
-    .stat { border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; background: var(--soft); min-width: 100px; }
-    .stat strong { display: block; font-size: 20px; }
+    .brand-logo {
+      display: block;
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+    }
+    .brand-title {
+      min-width: 0;
+      border-left: 1px solid var(--line);
+      padding-left: 20px;
+    }
+    .brand-kicker {
+      color: var(--lumi-green-deep);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin: 0 0 3px;
+    }
+    .brand-title h1 {
+      font-size: clamp(18px, 2.2vw, 30px);
+      margin: 0;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+    .brand-title p { margin: 4px 0 0; color: var(--muted); max-width: 780px; font-size: 14px; }
+    .stats { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 7px 11px;
+      background: var(--surface);
+      min-width: 92px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .stat strong { display: block; color: var(--lumi-green); font-size: 20px; line-height: 1.05; }
+    .hero {
+      max-width: 1480px;
+      margin: 0 auto;
+      padding: 34px 28px 8px;
+    }
+    .hero-panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--lumi-green);
+      border-radius: 8px;
+      padding: clamp(22px, 4vw, 42px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 28px;
+      box-shadow: 0 18px 50px rgba(31, 41, 51, .06);
+    }
+    .hero h2 {
+      margin: 0 0 10px;
+      max-width: 980px;
+      font-size: clamp(30px, 5vw, 62px);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+    .hero p { color: var(--muted); margin: 0; max-width: 850px; font-size: 17px; }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .hero-tags span {
+      border: 1px solid var(--line);
+      background: var(--lumi-mint);
+      color: var(--lumi-green-deep);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .hero-note {
+      background: var(--lumi-pale);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      align-self: start;
+    }
+    .hero-note strong { color: var(--lumi-green-deep); display: block; margin-bottom: 8px; }
+    .hero-note p { font-size: 14px; }
     .layout {
-      max-width: 1400px;
+      max-width: 1480px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 310px minmax(0, 1fr);
-      gap: 34px;
-      padding: 26px 28px 80px;
+      grid-template-columns: 330px minmax(0, 1fr);
+      gap: 28px;
+      padding: 24px 28px 80px;
     }
     nav {
       position: sticky;
-      top: 96px;
+      top: 92px;
       align-self: start;
-      max-height: calc(100vh - 120px);
+      max-height: calc(100vh - 112px);
       overflow: auto;
-      border-right: 1px solid var(--line);
-      padding-right: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: rgba(255,255,255,.94);
+      box-shadow: 0 12px 30px rgba(31, 41, 51, .04);
+    }
+    .nav-title {
+      margin: 0 0 10px;
+      color: var(--lumi-green-deep);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
     }
     nav a {
       display: block;
       color: var(--text);
       text-decoration: none;
-      padding: 7px 8px;
+      padding: 8px 9px;
       border-radius: 6px;
       font-size: 14px;
+      line-height: 1.35;
+      border-left: 3px solid transparent;
     }
-    nav a:hover { background: var(--soft); color: var(--accent); }
+    nav a:hover {
+      background: var(--lumi-mint);
+      color: var(--lumi-green-deep);
+      border-left-color: var(--lumi-green);
+    }
     main { min-width: 0; }
     .doc {
-      background: var(--paper);
+      background: var(--surface);
       border: 1px solid var(--line);
       border-radius: 8px;
       padding: clamp(22px, 4vw, 54px);
       margin-bottom: 24px;
-      box-shadow: 0 18px 50px rgba(29, 43, 38, .06);
+      box-shadow: 0 18px 50px rgba(31, 41, 51, .06);
     }
-    .doc h1 { margin-top: 0; font-size: clamp(30px, 5vw, 58px); }
-    .doc h2 { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 28px; }
-    .doc h3 { margin-top: 28px; color: var(--accent); }
+    h1, h2, h3, h4 { line-height: 1.2; letter-spacing: 0; }
+    .doc h1 {
+      margin-top: 0;
+      font-size: clamp(30px, 4.6vw, 54px);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 18px;
+    }
+    .doc h2 {
+      margin-top: 44px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      font-size: 28px;
+    }
+    .doc h3 { margin-top: 28px; color: var(--lumi-green-deep); }
+    .doc h4 { color: var(--muted); }
     p, li { font-size: 16px; }
+    .doc p strong:first-child { color: var(--lumi-green-deep); }
+    .learning-figure {
+      margin: 24px 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--surface);
+      box-shadow: 0 12px 32px rgba(31, 41, 51, .06);
+    }
+    .learning-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background: var(--lumi-pale);
+    }
+    .learning-figure figcaption {
+      padding: 12px 14px;
+      border-top: 1px solid var(--line);
+      background: var(--lumi-pale);
+      color: var(--muted);
+      font-size: 14px;
+    }
     code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-    pre { overflow: auto; background: #1f261f; color: #f7f1e7; padding: 16px; border-radius: 8px; }
-    .table-wrap { overflow-x: auto; margin: 18px 0; border: 1px solid var(--line); border-radius: 8px; }
-    table { width: 100%; border-collapse: collapse; min-width: 720px; background: #fff; }
-    th, td { padding: 11px 12px; border-bottom: 1px solid var(--line); vertical-align: top; text-align: left; }
-    th { background: var(--soft); color: #173d2a; font-weight: 700; }
+    code { background: var(--lumi-mint); color: var(--lumi-green-deep); border-radius: 4px; padding: 1px 5px; }
+    pre {
+      overflow: auto;
+      background: var(--code);
+      color: #F3FAF6;
+      padding: 16px;
+      border-radius: 8px;
+      border-left: 4px solid var(--lumi-green);
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+    .table-wrap {
+      overflow-x: auto;
+      margin: 18px 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+    table { width: 100%; border-collapse: collapse; min-width: 760px; background: var(--surface); }
+    th, td { padding: 12px 13px; border-bottom: 1px solid var(--line); vertical-align: top; text-align: left; }
+    th {
+      background: var(--lumi-mint);
+      color: var(--lumi-green-deep);
+      font-weight: 700;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    tr:nth-child(even) td { background: #FAFCFB; }
     tr:last-child td { border-bottom: 0; }
     hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
-    @media (max-width: 900px) {
-      .top { grid-template-columns: 1fr; }
+    @media (max-width: 980px) {
+      .top { grid-template-columns: 1fr; gap: 12px; }
+      .brand-logo { height: 36px; }
+      .brand-title { border-left: 0; padding-left: 0; }
       .stats { justify-content: flex-start; }
+      .hero { padding: 20px 14px 4px; }
+      .hero-panel { grid-template-columns: 1fr; }
       .layout { grid-template-columns: 1fr; padding: 18px 14px 50px; }
-      nav { position: static; max-height: 260px; border: 1px solid var(--line); border-radius: 8px; padding: 10px; background: var(--paper); }
+      nav { position: static; max-height: 320px; }
       .doc { padding: 22px 16px; }
-      table { min-width: 640px; }
+      table { min-width: 680px; }
     }
     @media print {
-      header, nav { display: none; }
+      .site-header, nav, .hero { display: none; }
       .layout { display: block; padding: 0; }
       .doc { box-shadow: none; border: 0; page-break-after: always; }
       body { background: white; }
+      table { min-width: 0; }
     }
   </style>
 </head>
 <body>
-  <header>
+  <header class="site-header">
     <div class="top">
-      <div class="brand">
+      <a href="#readme" aria-label="Lumi">
+        <img class="brand-logo" src="assets/lumi-logo-2022.png" alt="Lumi">
+      </a>
+      <div class="brand-title">
+        <p class="brand-kicker">Nền tảng học tập ứng dụng</p>
         <h1>Nền Tảng Học Thiết Kế Nhà Và Vườn Nhiệt Đới Bắc Bộ</h1>
         <p>Học toàn dự án từ ý tưởng, thiết kế, thi công, vận hành đến bảo trì 30-50 năm.</p>
       </div>
@@ -124,10 +290,29 @@
       </div>
     </div>
   </header>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-panel">
+      <div>
+        <h2 id="hero-title">Học để ra quyết định tốt hơn cho một ngôi nhà sống lâu.</h2>
+        <p>Website này đặt toàn bộ bản đồ kiến thức, giáo trình, thuật ngữ, công cụ thực hành và 72 module vào một môi trường học tĩnh, sáng, kỹ thuật và dễ tra cứu.</p>
+        <div class="hero-tags">
+          <span>Khí hậu Bắc Bộ</span>
+          <span>Nhà vườn nhiệt đới</span>
+          <span>Thiết kế vòng đời</span>
+          <span>Vận hành 30-50 năm</span>
+        </div>
+      </div>
+      <aside class="hero-note">
+        <strong>Lumi learning interface</strong>
+        <p>Nội dung học hiện ngay bên dưới. Dùng mục lục để chuyển nhanh giữa bản đồ, giáo trình, glossary, công cụ và từng module.</p>
+      </aside>
+    </div>
+  </section>
   <div class="layout">
-    <nav aria-label="Mục lục"><a href='#readme'>Nền Tảng Học Thiết Kế Nhà Và Vườn Nhiệt Đới Bắc Bộ</a>
+    <nav aria-label="Mục lục"><p class="nav-title">Mục lục học tập</p><a href='#readme'>Nền Tảng Học Thiết Kế Nhà Và Vườn Nhiệt Đới Bắc Bộ</a>
 <a href='#ban-do-nha-vuon-bac-bo'>Bản đồ nhà và vườn nhiệt đới Bắc Bộ</a>
 <a href='#giao-trinh-nha-vuon-bac-bo'>Giáo trình nhà và vườn nhiệt đới Bắc Bộ</a>
+<a href='#hinh-anh-truc-quan'>Hình ảnh trực quan theo 8 phần học</a>
 <a href='#thuat-ngu-nha-vuon-bac-bo'>Thuật ngữ nhà và vườn nhiệt đới Bắc Bộ</a>
 <a href='#cong-cu-thuc-hanh'>Công cụ thực hành cho dự án nhà vườn Bắc Bộ</a>
 <a href='#module-01-vai-tro-chu-nha-trong-mot-du-an-nha-vuon'>Module 01: Vai trò chủ nhà trong một dự án nhà vườn</a>
@@ -231,7 +416,7 @@
 <li>Source học tập chính là các tệp Markdown; <code>index.html</code> được dựng lại từ source bằng <code>build_platform_html.py</code>.</li>
 </ul>
 <h2 id='readme-cau-truc-repo'>Cấu trúc repo</h2>
-<div class='table-wrap'><table><thead><tr><th>Nhóm tệp</th><th>Vai trò</th></tr></thead><tbody><tr><td><code>README.md</code></td><td>Giới thiệu nền tảng, cách học, cách dựng website.</td></tr><tr><td><code>ban-do-nha-vuon-bac-bo.md</code></td><td>Bản đồ lĩnh vực và nguyên lý nền tảng.</td></tr><tr><td><code>giao-trinh-nha-vuon-bac-bo.md</code></td><td>Lộ trình 72 module.</td></tr><tr><td><code>thuat-ngu-nha-vuon-bac-bo.md</code></td><td>Glossary thuật ngữ.</td></tr><tr><td><code>cong-cu-thuc-hanh.md</code></td><td>Checklist, worksheet, lịch bảo trì.</td></tr><tr><td><code>Module-*.md</code></td><td>72 bài học chuyên sâu.</td></tr><tr><td><code>build_platform_html.py</code></td><td>Script dựng website từ Markdown.</td></tr><tr><td><code>index.html</code></td><td>Website tĩnh để học ngay.</td></tr></tbody></table></div>
+<div class='table-wrap'><table><thead><tr><th>Nhóm tệp</th><th>Vai trò</th></tr></thead><tbody><tr><td><code>README.md</code></td><td>Giới thiệu nền tảng, cách học, cách dựng website.</td></tr><tr><td><code>ban-do-nha-vuon-bac-bo.md</code></td><td>Bản đồ lĩnh vực và nguyên lý nền tảng.</td></tr><tr><td><code>giao-trinh-nha-vuon-bac-bo.md</code></td><td>Lộ trình 72 module.</td></tr><tr><td><code>hinh-anh-truc-quan.md</code></td><td>Bộ ảnh photorealistic theo 8 phần học chính.</td></tr><tr><td><code>thuat-ngu-nha-vuon-bac-bo.md</code></td><td>Glossary thuật ngữ.</td></tr><tr><td><code>cong-cu-thuc-hanh.md</code></td><td>Checklist, worksheet, lịch bảo trì.</td></tr><tr><td><code>Module-*.md</code></td><td>72 bài học chuyên sâu.</td></tr><tr><td><code>build_platform_html.py</code></td><td>Script dựng website từ Markdown.</td></tr><tr><td><code>index.html</code></td><td>Website tĩnh để học ngay.</td></tr><tr><td><code>assets/lumi-logo-2022.png</code></td><td>Logo Lumi chính thức dùng trong header website.</td></tr><tr><td><code>assets/visuals/chapters/*.png</code></td><td>8 ảnh chapter photorealistic cho website.</td></tr></tbody></table></div>
 <h2 id='readme-ranh-gioi-trach-nhiem'>Ranh giới trách nhiệm</h2>
 <p>Nội dung này là nền tảng học tập và chuẩn bị ra quyết định cho chủ nhà. Nó không thay thế khảo sát địa chất, hồ sơ thiết kế có pháp nhân, tính toán kết cấu, thiết kế MEP, tư vấn pháp lý, tư vấn cây xanh chuyên nghiệp hoặc nghiệm thu của người có năng lực. Với các quyết định liên quan an toàn, pháp lý, kết cấu, điện, chống sét, phòng cháy, nước thải và cây lớn, hãy làm việc với chuyên gia đủ điều kiện.</p>
 <h2 id='readme-dung-website'>Dựng website</h2>
@@ -256,6 +441,24 @@
 <div class='table-wrap'><table><thead><tr><th>Mục tiêu</th><th>Nên học module</th><th>Kết quả mong đợi</th></tr></thead><tbody><tr><td>Chuẩn bị làm việc với kiến trúc sư</td><td>01-08, 17-24</td><td>Có brief, tiêu chí thành công, bản đồ quyết định và ngôn ngữ thiết kế.</td></tr><tr><td>Đọc khu đất và khí hậu</td><td>09-16</td><td>Biết đặt câu hỏi đúng về nắng, gió, nước, nồm, cao độ và pháp lý.</td></tr><tr><td>Kiểm soát kỹ thuật khó sửa</td><td>25-36, 49-56</td><td>Biết điểm cần chuyên gia, điểm chờ nghiệm thu và rủi ro bị che khuất.</td></tr><tr><td>Xây vườn sống lâu</td><td>37-48, 61-63, 67</td><td>Có chiến lược cây, đất, nước, chăm sóc và kịch bản vườn trưởng thành.</td></tr><tr><td>Vận hành 30-50 năm</td><td>57-72</td><td>Có lịch bảo trì, quỹ vòng đời, nhật ký vận hành và tiêu chí đánh giá sau khi ở.</td></tr></tbody></table></div>
 <h2 id='giao-trinh-nha-vuon-bac-bo-cach-dung-voi-du-an-that'>Cách dùng với dự án thật</h2>
 <p>Mỗi module nên kết thúc bằng một tài sản cụ thể: một quyết định, một checklist, một bản ghi quan sát, một câu hỏi gửi chuyên gia, một tiêu chí nghiệm thu hoặc một thay đổi trong kế hoạch vận hành. Không học module chỉ để biết thêm thuật ngữ.</p></article>
+<article id='hinh-anh-truc-quan' class='doc'><h1 id='hinh-anh-truc-quan-hinh-anh-truc-quan-theo-8-phan-hoc'>Hình ảnh trực quan theo 8 phần học</h1>
+<p>Bộ ảnh này thay thế các hình tự vẽ và ảnh ngẫu nhiên trước đó. Mỗi ảnh được tạo theo hướng photorealistic để người học nhìn thấy bối cảnh nhà - vườn - khí hậu - thi công - vận hành một cách chân thực hơn. Ảnh không nhúng logo Lumi, không chứa chữ giả và không dùng làm sơ đồ chính xác; phần giải thích, mô hình và checklist vẫn nằm trong HTML/Markdown.</p>
+<h2 id='hinh-anh-truc-quan-tu-duy-tong-du-an'>Tư duy tổng dự án</h2>
+<figure class='learning-figure'><img src='assets/visuals/chapters/01-tu-duy-tong-du-an.png' alt='Ảnh photorealistic cho phần học: Tư duy tổng dự án' loading='lazy'><figcaption>Ảnh photorealistic về nhà vườn Bắc Bộ như một hệ sống dài hạn: nhà, hiên, sân, cây và quyết định của chủ nhà.</figcaption></figure>
+<h2 id='hinh-anh-truc-quan-boi-canh-bac-bo'>Bối cảnh Bắc Bộ</h2>
+<figure class='learning-figure'><img src='assets/visuals/chapters/02-boi-canh-bac-bo.png' alt='Ảnh photorealistic cho phần học: Bối cảnh Bắc Bộ' loading='lazy'><figcaption>Ảnh photorealistic giúp người học nhìn khu đất qua nước, cây, tường rào, bề mặt ẩm và dấu hiệu khí hậu.</figcaption></figure>
+<h2 id='hinh-anh-truc-quan-y-tuong-kien-truc'>Ý tưởng kiến trúc</h2>
+<figure class='learning-figure'><img src='assets/visuals/chapters/03-y-tuong-kien-truc.png' alt='Ảnh photorealistic cho phần học: Ý tưởng kiến trúc' loading='lazy'><figcaption>Ảnh photorealistic về quan hệ hiên, sân, mái, vật liệu và vườn trong một ngôi nhà nhiệt đới Bắc Bộ.</figcaption></figure>
+<h2 id='hinh-anh-truc-quan-thiet-ke-ky-thuat-nha-o'>Thiết kế kỹ thuật nhà ở</h2>
+<figure class='learning-figure'><img src='assets/visuals/chapters/04-ky-thuat-nha-o.png' alt='Ảnh photorealistic cho phần học: Thiết kế kỹ thuật nhà ở' loading='lazy'><figcaption>Ảnh photorealistic về lớp kỹ thuật, thi công, mái, tường, đường nước và điểm kiểm tra trong khí hậu nóng ẩm.</figcaption></figure>
+<h2 id='hinh-anh-truc-quan-thiet-ke-vuon-nhiet-doi-bac-bo'>Thiết kế vườn nhiệt đới Bắc Bộ</h2>
+<figure class='learning-figure'><img src='assets/visuals/chapters/05-vuon-nhiet-doi.png' alt='Ảnh photorealistic cho phần học: Thiết kế vườn nhiệt đới Bắc Bộ' loading='lazy'><figcaption>Ảnh photorealistic về vườn nhiều tầng cây, lối đi, đất, nước và chiến lược chăm sóc dài hạn.</figcaption></figure>
+<h2 id='hinh-anh-truc-quan-quan-ly-thiet-ke-ngan-sach-va-thi-cong'>Quản lý thiết kế, ngân sách và thi công</h2>
+<figure class='learning-figure'><img src='assets/visuals/chapters/06-quan-ly-thi-cong.png' alt='Ảnh photorealistic cho phần học: Quản lý thiết kế, ngân sách và thi công' loading='lazy'><figcaption>Ảnh photorealistic về phối hợp chủ nhà, kiến trúc sư, kỹ sư và nhà thầu trên công trường nhà vườn.</figcaption></figure>
+<h2 id='hinh-anh-truc-quan-hoan-thien-ban-giao-va-van-hanh'>Hoàn thiện, bàn giao và vận hành</h2>
+<figure class='learning-figure'><img src='assets/visuals/chapters/07-van-hanh-bao-tri.png' alt='Ảnh photorealistic cho phần học: Hoàn thiện, bàn giao và vận hành' loading='lazy'><figcaption>Ảnh photorealistic về nhà vườn sau hoàn thiện, có ánh sáng, thiết bị, lối đi và dấu hiệu vận hành gọn gàng.</figcaption></figure>
+<h2 id='hinh-anh-truc-quan-tu-duy-vong-doi-30-50-nam'>Tư duy vòng đời 30-50 năm</h2>
+<figure class='learning-figure'><img src='assets/visuals/chapters/08-vong-doi-30-50-nam.png' alt='Ảnh photorealistic cho phần học: Tư duy vòng đời 30-50 năm' loading='lazy'><figcaption>Ảnh photorealistic về ngôi nhà vườn trưởng thành, vật liệu có patina, cây lớn và dấu vết chăm sóc qua nhiều năm.</figcaption></figure></article>
 <article id='thuat-ngu-nha-vuon-bac-bo' class='doc'><h1 id='thuat-ngu-nha-vuon-bac-bo-thuat-ngu-nha-va-vuon-nhiet-doi-bac-bo'>Thuật ngữ nhà và vườn nhiệt đới Bắc Bộ</h1>
 <p>Glossary này dùng thuật ngữ như công cụ quan sát và hành động. Không dùng thuật ngữ để tạo cảm giác chuyên môn giả; mỗi từ phải giúp bạn hỏi câu hỏi tốt hơn trong dự án thật.</p>
 <div class='table-wrap'><table><thead><tr><th>Thuật ngữ</th><th>Nhóm</th><th>Định nghĩa ngắn</th><th>Bản chất</th><th>Câu hỏi ứng dụng</th></tr></thead><tbody><tr><td>Brief thiết kế</td><td>Tổng dự án</td><td>Tài liệu mô tả mục tiêu sống, ràng buộc, ưu tiên, ngân sách và tiêu chí thành công.</td><td>Giúp đội thiết kế hiểu đúng vấn đề trước khi tạo hình.</td><td>Nếu brief chỉ là ảnh tham khảo, dự án dễ chạy theo hình thức.</td></tr><tr><td>Vi khí hậu</td><td>Khí hậu</td><td>Điều kiện nắng, gió, ẩm, nhiệt trong phạm vi khu đất và từng khoảng sân.</td><td>Quyết định cảm giác sống thật.</td><td>Góc sân mát buổi chiều có thể tốt hơn phòng khách đẹp nhưng nóng.</td></tr><tr><td>Nồm</td><td>Khí hậu</td><td>Hiện tượng hơi nước đọng trên bề mặt khi không khí ẩm gặp bề mặt lạnh.</td><td>Ảnh hưởng sàn, tường, đồ gỗ, thiết bị và sức khỏe.</td><td>Mở cửa sai thời điểm có thể làm nhà ẩm hơn.</td></tr><tr><td>Khoảng đệm</td><td>Kiến trúc</td><td>Không gian chuyển tiếp giữa trong và ngoài như hiên, sảnh, sân, mái đua.</td><td>Giảm mưa nắng, tạo riêng tư và nơi sống ngoài trời.</td><td>Nhà không có khoảng đệm thường phụ thuộc mạnh vào điều hòa.</td></tr><tr><td>Đường nước</td><td>Kỹ thuật</td><td>Lộ trình nước mưa, nước mặt, nước ngầm, nước thải và nước rò đi qua công trình.</td><td>Là trục kiểm soát thấm, úng và tuổi thọ.</td><td>Mỗi điểm tiếp giáp mái, tường, sàn đều cần nghĩ đến nước.</td></tr><tr><td>Điểm chờ nghiệm thu</td><td>Thi công</td><td>Mốc phải kiểm tra trước khi che khuất bằng lớp hoàn thiện.</td><td>Ngăn lỗi âm tường, âm sàn, âm mái.</td><td>Chống thấm cần thử nước trước khi lát.</td></tr><tr><td>Tầng cây</td><td>Cảnh quan</td><td>Cấu trúc cây cao, cây trung, bụi, thảm, leo, mặt nước.</td><td>Tạo bóng, độ sâu, đa dạng sinh học và ổn định vườn.</td><td>Vườn chỉ có cây trang trí thấp thường nóng và nhanh cũ.</td></tr><tr><td>Quỹ bảo trì</td><td>Vòng đời</td><td>Khoản tiền định kỳ dành cho sửa chữa, thay thế, chăm cây và nâng cấp.</td><td>Biến bảo trì thành kế hoạch thay vì khủng hoảng.</td><td>Nhà vườn không có quỹ bảo trì dễ xuống cấp sau vài mùa mưa.</td></tr><tr><td>Hồ sơ hoàn công</td><td>Vận hành</td><td>Bộ bản vẽ và thông tin phản ánh công trình đã xây thực tế.</td><td>Giúp sửa chữa, khoan đục, thay thiết bị và cải tạo an toàn.</td><td>Ảnh chụp đường ống trước khi che phủ rất có giá trị.</td></tr><tr><td>Chi phí vòng đời</td><td>Tài chính</td><td>Tổng chi phí xây, vận hành, năng lượng, bảo trì, sửa chữa, thay thế.</td><td>Giúp tránh chọn giải pháp rẻ lúc đầu nhưng đắt về sau.</td><td>Một mái tốt có thể tiết kiệm tiền thấm và làm mát nhiều năm.</td></tr><tr><td>Vai trò chủ nhà trong một dự án nhà vườn</td><td>Tư duy tổng dự án</td><td>Chủ đề học về vai trò chủ nhà trong một dự án nhà vườn.</td><td>Biến chủ nhà từ người mua dịch vụ thành người giữ chuẩn sống, chuẩn quyết định và chuẩn vận hành.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Từ giấc mơ sống đến brief thiết kế</td><td>Tư duy tổng dự án</td><td>Chủ đề học về từ giấc mơ sống đến brief thiết kế.</td><td>Chuyển mong muốn mơ hồ thành brief có thứ tự ưu tiên, ràng buộc và tiêu chí đo được.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Bản đồ quyết định sớm và muộn</td><td>Tư duy tổng dự án</td><td>Chủ đề học về bản đồ quyết định sớm và muộn.</td><td>Biết quyết định nào khóa chi phí vòng đời, quyết định nào có thể để mở.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Đội dự án và cách làm việc với chuyên gia</td><td>Tư duy tổng dự án</td><td>Chủ đề học về đội dự án và cách làm việc với chuyên gia.</td><td>Phân vai kiến trúc sư, kỹ sư, cảnh quan, nhà thầu và chủ nhà để giảm hiểu nhầm.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Tiêu chí thành công của một ngôi nhà sống tốt</td><td>Tư duy tổng dự án</td><td>Chủ đề học về tiêu chí thành công của một ngôi nhà sống tốt.</td><td>Định nghĩa thành công bằng trải nghiệm, an toàn, chi phí vòng đời và khả năng thích nghi.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Ngân sách vòng đời thay vì chỉ chi phí xây</td><td>Tư duy tổng dự án</td><td>Chủ đề học về ngân sách vòng đời thay vì chỉ chi phí xây.</td><td>Nhìn tổng chi phí sở hữu trong 30-50 năm để không tiết kiệm sai chỗ.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Rủi ro lớn nhất của nhà vườn khí hậu ẩm</td><td>Tư duy tổng dự án</td><td>Chủ đề học về rủi ro lớn nhất của nhà vườn khí hậu ẩm.</td><td>Nhận diện sớm thấm, nồm, nóng, bí gió, úng vườn và lỗi phối hợp.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Cách ghi nhật ký quyết định thiết kế</td><td>Tư duy tổng dự án</td><td>Chủ đề học về cách ghi nhật ký quyết định thiết kế.</td><td>Lưu lý do, phương án bị loại, giả định và trách nhiệm để kiểm soát thay đổi.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Đọc khí hậu nóng ẩm gió mùa</td><td>Bối cảnh Bắc Bộ</td><td>Chủ đề học về đọc khí hậu nóng ẩm gió mùa.</td><td>Hiểu nắng, gió, mưa, nồm, rét, bão như đầu vào thiết kế chứ không phải phiền toái.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Đọc khu đất trước khi vẽ nhà</td><td>Bối cảnh Bắc Bộ</td><td>Chủ đề học về đọc khu đất trước khi vẽ nhà.</td><td>Quan sát hướng, cao độ, nước, tiếng ồn, hàng xóm, riêng tư và tuyến tiếp cận.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Nắng tây, bóng đổ và chiến lược che nắng</td><td>Bối cảnh Bắc Bộ</td><td>Chủ đề học về nắng tây, bóng đổ và chiến lược che nắng.</td><td>Dùng mái, hiên, cây và mặt đứng để giảm tải nhiệt mà không làm tối nhà.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Gió, thông thoáng và bẫy bí khí</td><td>Bối cảnh Bắc Bộ</td><td>Chủ đề học về gió, thông thoáng và bẫy bí khí.</td><td>Tổ chức đường gió, cửa, giếng trời và khoảng rỗng để nhà thở được.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Mưa lớn, thoát nước và cao độ nền</td><td>Bối cảnh Bắc Bộ</td><td>Chủ đề học về mưa lớn, thoát nước và cao độ nền.</td><td>Thiết kế cao độ, sân, rãnh, mái và vườn để nước đi đúng đường.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Nồm ẩm và cân bằng hơi nước</td><td>Bối cảnh Bắc Bộ</td><td>Chủ đề học về nồm ẩm và cân bằng hơi nước.</td><td>Hiểu cơ chế đọng sương để chọn vật liệu, thông gió và vận hành đúng.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Tinh thần sân, hiên, vườn trong nhà Bắc Bộ</td><td>Bối cảnh Bắc Bộ</td><td>Chủ đề học về tinh thần sân, hiên, vườn trong nhà bắc bộ.</td><td>Học di sản không bằng hình thức, mà bằng quan hệ khí hậu, nếp sống và ngưỡng chuyển tiếp.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Pháp lý, quy hoạch và giới hạn cần kiểm tra</td><td>Bối cảnh Bắc Bộ</td><td>Chủ đề học về pháp lý, quy hoạch và giới hạn cần kiểm tra.</td><td>Biết những câu hỏi pháp lý bắt buộc trước khi mua đất, thiết kế hoặc thi công.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Ngôn ngữ nhiệt đới Bắc Bộ đương đại</td><td>Ý tưởng kiến trúc</td><td>Chủ đề học về ngôn ngữ nhiệt đới bắc bộ đương đại.</td><td>Tạo phong cách từ cơ chế khí hậu và văn hóa sống, tránh sao chép biểu tượng.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Tổ chức mặt bằng theo nhịp sống gia đình</td><td>Ý tưởng kiến trúc</td><td>Chủ đề học về tổ chức mặt bằng theo nhịp sống gia đình.</td><td>Xếp không gian theo thói quen, riêng tư, tiếp khách, chăm sóc, tuổi già và trẻ nhỏ.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Hiên, mái và khoảng đệm</td><td>Ý tưởng kiến trúc</td><td>Chủ đề học về hiên, mái và khoảng đệm.</td><td>Dùng khoảng chuyển tiếp để che mưa nắng, giảm sốc nhiệt và tạo nơi sống ngoài trời.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Sân trong, giếng trời và lõi thông gió</td><td>Ý tưởng kiến trúc</td><td>Chủ đề học về sân trong, giếng trời và lõi thông gió.</td><td>Tạo ánh sáng, gió, cây và cảm giác sâu cho nhà mà vẫn kiểm soát nóng ẩm.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Quan hệ nhà - vườn - nước</td><td>Ý tưởng kiến trúc</td><td>Chủ đề học về quan hệ nhà - vườn - nước.</td><td>Đặt nước và cây như hạ tầng vi khí hậu, không chỉ là trang trí.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Riêng tư, an ninh và mở về thiên nhiên</td><td>Ý tưởng kiến trúc</td><td>Chủ đề học về riêng tư, an ninh và mở về thiên nhiên.</td><td>Cân bằng tầm nhìn, hàng rào, lớp cây, cửa và thói quen sử dụng.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Ánh sáng tự nhiên và bóng tối hữu ích</td><td>Ý tưởng kiến trúc</td><td>Chủ đề học về ánh sáng tự nhiên và bóng tối hữu ích.</td><td>Thiết kế ánh sáng để đọc, nghỉ, làm việc và cảm nhận mùa mà không gây chói nóng.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Mặt đứng, tỷ lệ và vật liệu địa phương</td><td>Ý tưởng kiến trúc</td><td>Chủ đề học về mặt đứng, tỷ lệ và vật liệu địa phương.</td><td>Tạo vẻ đẹp bền bằng tỷ lệ, bóng đổ, vật liệu thật và chi tiết dễ bảo trì.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Khảo sát địa chất và quyết định móng</td><td>Thiết kế kỹ thuật nhà ở</td><td>Chủ đề học về khảo sát địa chất và quyết định móng.</td><td>Biết vì sao móng cần dữ kiện đất thật và không thể chọn bằng kinh nghiệm truyền miệng.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Kết cấu, nhịp và khả năng cải tạo</td><td>Thiết kế kỹ thuật nhà ở</td><td>Chủ đề học về kết cấu, nhịp và khả năng cải tạo.</td><td>Tổ chức cột, dầm, sàn để vừa an toàn vừa linh hoạt cho 30-50 năm.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Mái trong khí hậu mưa nắng lớn</td><td>Thiết kế kỹ thuật nhà ở</td><td>Chủ đề học về mái trong khí hậu mưa nắng lớn.</td><td>Thiết kế mái như hệ che, thoát nước, cách nhiệt, chống dột và bảo trì.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Tường, vỏ bao che và quán tính nhiệt</td><td>Thiết kế kỹ thuật nhà ở</td><td>Chủ đề học về tường, vỏ bao che và quán tính nhiệt.</td><td>Hiểu tường như lớp lọc nắng, ẩm, âm, gió và cảm giác chạm.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Chống thấm từ nguyên lý</td><td>Thiết kế kỹ thuật nhà ở</td><td>Chủ đề học về chống thấm từ nguyên lý.</td><td>Chặn nước bằng thiết kế đường nước, chi tiết cấu tạo, vật liệu và kiểm tra thi công.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Chống nóng không chỉ bằng điều hòa</td><td>Thiết kế kỹ thuật nhà ở</td><td>Chủ đề học về chống nóng không chỉ bằng điều hòa.</td><td>Giảm nhiệt từ nguồn bằng hướng, che nắng, thông gió, mái, cây và vận hành.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Điện, chiếu sáng và an toàn sử dụng</td><td>Thiết kế kỹ thuật nhà ở</td><td>Chủ đề học về điện, chiếu sáng và an toàn sử dụng.</td><td>Thiết kế hệ điện có dự phòng, dễ kiểm tra, đủ tải và phù hợp thói quen sống.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Cấp thoát nước, bể, bơm và vệ sinh</td><td>Thiết kế kỹ thuật nhà ở</td><td>Chủ đề học về cấp thoát nước, bể, bơm và vệ sinh.</td><td>Tổ chức nước sạch, nước mưa, nước thải, thoát sàn và điểm kiểm tra.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Thông gió, điều hòa và chất lượng không khí</td><td>Thiết kế kỹ thuật nhà ở</td><td>Chủ đề học về thông gió, điều hòa và chất lượng không khí.</td><td>Phối hợp thông gió tự nhiên, cơ khí và điều hòa để tránh ẩm mốc và bí khí.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Chống sét, cháy nổ và an toàn kỹ thuật</td><td>Thiết kế kỹ thuật nhà ở</td><td>Chủ đề học về chống sét, cháy nổ và an toàn kỹ thuật.</td><td>Đưa an toàn thành yêu cầu thiết kế, không phải hạng mục thêm cuối dự án.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Vật liệu cho khí hậu nóng ẩm</td><td>Thiết kế kỹ thuật nhà ở</td><td>Chủ đề học về vật liệu cho khí hậu nóng ẩm.</td><td>Chọn vật liệu theo nước, nhiệt, bảo trì, tuổi thọ, cảm giác và khả năng sửa chữa.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Chi tiết cấu tạo quyết định tuổi thọ</td><td>Thiết kế kỹ thuật nhà ở</td><td>Chủ đề học về chi tiết cấu tạo quyết định tuổi thọ.</td><td>Nhìn chân tường, mép mái, khe co giãn, cổ ống và tiếp giáp như điểm rủi ro chính.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Bản đồ vườn như một hệ sinh thái sống</td><td>Thiết kế vườn nhiệt đới Bắc Bộ</td><td>Chủ đề học về bản đồ vườn như một hệ sinh thái sống.</td><td>Thiết kế vườn bằng tầng, chu trình nước, đất, ánh sáng, chăm sóc và thời gian.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Tầng cây và cấu trúc bóng mát</td><td>Thiết kế vườn nhiệt đới Bắc Bộ</td><td>Chủ đề học về tầng cây và cấu trúc bóng mát.</td><td>Xếp cây cao, cây trung, bụi, thảm, leo và mặt nước để tạo vi khí hậu.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Chọn cây theo đất, nước, nắng và chăm sóc</td><td>Thiết kế vườn nhiệt đới Bắc Bộ</td><td>Chủ đề học về chọn cây theo đất, nước, nắng và chăm sóc.</td><td>Chọn cây không theo ảnh đẹp mà theo điều kiện sống và năng lực bảo trì.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Cây bản địa, cây ăn quả và cây hương</td><td>Thiết kế vườn nhiệt đới Bắc Bộ</td><td>Chủ đề học về cây bản địa, cây ăn quả và cây hương.</td><td>Phối hợp giá trị sinh thái, ký ức, mùa vụ, mùi hương và an toàn sử dụng.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Đất trồng, phân hữu cơ và sức khỏe rễ</td><td>Thiết kế vườn nhiệt đới Bắc Bộ</td><td>Chủ đề học về đất trồng, phân hữu cơ và sức khỏe rễ.</td><td>Xem đất là nền sống của vườn, không phải vật liệu lấp chỗ trống.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Tưới, thu nước mưa và tiết kiệm nước</td><td>Thiết kế vườn nhiệt đới Bắc Bộ</td><td>Chủ đề học về tưới, thu nước mưa và tiết kiệm nước.</td><td>Thiết kế tưới theo vùng, mùa, loại cây và khả năng kiểm soát.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Thoát nước vườn và chống úng</td><td>Thiết kế vườn nhiệt đới Bắc Bộ</td><td>Chủ đề học về thoát nước vườn và chống úng.</td><td>Tạo đường nước mặt, nước ngầm và điểm tràn an toàn trong mưa lớn.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Lối đi, sân, bậc và vật liệu ngoài trời</td><td>Thiết kế vườn nhiệt đới Bắc Bộ</td><td>Chủ đề học về lối đi, sân, bậc và vật liệu ngoài trời.</td><td>Chọn bề mặt không trơn, thoát nước, già đi đẹp và dễ sửa.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Hồ, ao nhỏ và mặt nước có trách nhiệm</td><td>Thiết kế vườn nhiệt đới Bắc Bộ</td><td>Chủ đề học về hồ, ao nhỏ và mặt nước có trách nhiệm.</td><td>Dùng nước để làm mát, phản chiếu và nuôi sinh thái nhưng kiểm soát muỗi, rò rỉ, an toàn.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Vườn theo mùa và lịch chăm sóc</td><td>Thiết kế vườn nhiệt đới Bắc Bộ</td><td>Chủ đề học về vườn theo mùa và lịch chăm sóc.</td><td>Lập kịch bản hoa, lá, quả, cắt tỉa, sâu bệnh và nghỉ dưỡng theo mùa Bắc Bộ.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Vườn trưởng thành qua 5-10-30 năm</td><td>Thiết kế vườn nhiệt đới Bắc Bộ</td><td>Chủ đề học về vườn trưởng thành qua 5-10-30 năm.</td><td>Thiết kế không gian cho cây lớn lên, thay bóng, rễ, tán và quan hệ với nhà.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Động vật nhỏ, côn trùng và cân bằng sinh thái</td><td>Thiết kế vườn nhiệt đới Bắc Bộ</td><td>Chủ đề học về động vật nhỏ, côn trùng và cân bằng sinh thái.</td><td>Tăng đa dạng sinh học vừa đủ mà vẫn giữ vệ sinh, an toàn và tiện nghi.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Hồ sơ thiết kế cần có trước khi thi công</td><td>Quản lý thiết kế, ngân sách và thi công</td><td>Chủ đề học về hồ sơ thiết kế cần có trước khi thi công.</td><td>Biết bộ bản vẽ, thuyết minh, dự toán và thông số nào cần khóa.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Dự toán, báo giá và bẫy chi phí ẩn</td><td>Quản lý thiết kế, ngân sách và thi công</td><td>Chủ đề học về dự toán, báo giá và bẫy chi phí ẩn.</td><td>Đọc báo giá theo phạm vi, đơn giá, chủng loại, khối lượng, điều kiện và rủi ro phát sinh.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Chọn nhà thầu và thiết lập hợp đồng</td><td>Quản lý thiết kế, ngân sách và thi công</td><td>Chủ đề học về chọn nhà thầu và thiết lập hợp đồng.</td><td>Đánh giá năng lực, quy trình, trách nhiệm, bảo hành, thanh toán và thay đổi.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Tiến độ thi công và điểm chờ nghiệm thu</td><td>Quản lý thiết kế, ngân sách và thi công</td><td>Chủ đề học về tiến độ thi công và điểm chờ nghiệm thu.</td><td>Biết lúc nào phải dừng để kiểm tra trước khi che khuất lỗi.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Nghiệm thu móng, kết cấu và mái</td><td>Quản lý thiết kế, ngân sách và thi công</td><td>Chủ đề học về nghiệm thu móng, kết cấu và mái.</td><td>Kiểm tra các hạng mục khó sửa, ảnh hưởng an toàn và tuổi thọ.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Nghiệm thu chống thấm, điện nước và thoát nước</td><td>Quản lý thiết kế, ngân sách và thi công</td><td>Chủ đề học về nghiệm thu chống thấm, điện nước và thoát nước.</td><td>Kiểm tra bằng thử nước, thử áp, quan sát đường ống và hồ sơ hoàn công.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Quản trị thay đổi trong lúc xây</td><td>Quản lý thiết kế, ngân sách và thi công</td><td>Chủ đề học về quản trị thay đổi trong lúc xây.</td><td>Phân biệt thay đổi cần thiết, thay đổi cảm tính và thay đổi phá hệ thống.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Kiểm soát chất lượng hoàn thiện</td><td>Quản lý thiết kế, ngân sách và thi công</td><td>Chủ đề học về kiểm soát chất lượng hoàn thiện.</td><td>Nhìn hoàn thiện như lớp sử dụng lâu dài, không chỉ là bề mặt đẹp lúc bàn giao.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Nội thất gắn với khí hậu và lối sống</td><td>Hoàn thiện, bàn giao và vận hành</td><td>Chủ đề học về nội thất gắn với khí hậu và lối sống.</td><td>Chọn đồ, bề mặt, lưu trữ và bố trí theo độ ẩm, vệ sinh, tuổi già và trẻ nhỏ.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Ánh sáng nhân tạo trong nhà vườn</td><td>Hoàn thiện, bàn giao và vận hành</td><td>Chủ đề học về ánh sáng nhân tạo trong nhà vườn.</td><td>Tạo lớp sáng cho sinh hoạt, an ninh, cảnh quan đêm và tiết kiệm năng lượng.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Thiết bị, phụ kiện và khả năng thay thế</td><td>Hoàn thiện, bàn giao và vận hành</td><td>Chủ đề học về thiết bị, phụ kiện và khả năng thay thế.</td><td>Chọn thiết bị theo khả năng bảo hành, linh kiện, sửa chữa và thói quen dùng.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Hồ sơ bàn giao và nhật ký vận hành</td><td>Hoàn thiện, bàn giao và vận hành</td><td>Chủ đề học về hồ sơ bàn giao và nhật ký vận hành.</td><td>Giữ bản vẽ hoàn công, catalogue, bảo hành, ảnh đường ống và nhật ký lỗi.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Lịch bảo trì tuần, tháng, mùa, năm</td><td>Hoàn thiện, bàn giao và vận hành</td><td>Chủ đề học về lịch bảo trì tuần, tháng, mùa, năm.</td><td>Biến bảo trì thành hệ thống nhẹ nhàng thay vì chữa cháy khi hỏng.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Quản lý ẩm mốc, côn trùng và vệ sinh</td><td>Hoàn thiện, bàn giao và vận hành</td><td>Chủ đề học về quản lý ẩm mốc, côn trùng và vệ sinh.</td><td>Duy trì nhà vườn sạch, thoáng, khô đúng mức mà không triệt tiêu thiên nhiên.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Vận hành nhà khi đi xa, mưa bão và mất điện</td><td>Hoàn thiện, bàn giao và vận hành</td><td>Chủ đề học về vận hành nhà khi đi xa, mưa bão và mất điện.</td><td>Chuẩn bị kịch bản bất thường để giảm thiệt hại và lo lắng.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Đo trải nghiệm sống sau khi vào ở</td><td>Hoàn thiện, bàn giao và vận hành</td><td>Chủ đề học về đo trải nghiệm sống sau khi vào ở.</td><td>Dùng phản hồi thực tế để tinh chỉnh ánh sáng, gió, cây, thói quen và bảo trì.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Nhà thay đổi theo gia đình</td><td>Tư duy vòng đời 30-50 năm</td><td>Chủ đề học về nhà thay đổi theo gia đình.</td><td>Dự phòng cho trẻ lớn, người già, làm việc tại nhà, chăm sóc và chuyển giao thế hệ.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Lão hóa vật liệu và kế hoạch thay thế</td><td>Tư duy vòng đời 30-50 năm</td><td>Chủ đề học về lão hóa vật liệu và kế hoạch thay thế.</td><td>Biết vật liệu nào già đẹp, vật liệu nào cần thay và chu kỳ bảo trì hợp lý.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Cây lớn, rễ, bóng và rủi ro dài hạn</td><td>Tư duy vòng đời 30-50 năm</td><td>Chủ đề học về cây lớn, rễ, bóng và rủi ro dài hạn.</td><td>Quản lý cây trưởng thành để giữ bóng mát mà không phá nền, tường, mái, ống.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Cải tạo theo giai đoạn không phá tổng thể</td><td>Tư duy vòng đời 30-50 năm</td><td>Chủ đề học về cải tạo theo giai đoạn không phá tổng thể.</td><td>Lập nguyên tắc nâng cấp để mỗi lần sửa làm nhà tốt hơn, không chắp vá.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Năng lượng, nước và khả năng tự chủ</td><td>Tư duy vòng đời 30-50 năm</td><td>Chủ đề học về năng lượng, nước và khả năng tự chủ.</td><td>Xem xét thu nước mưa, điện mặt trời, dự phòng và tiết kiệm theo điều kiện thật.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Chi phí vòng đời và quỹ bảo trì</td><td>Tư duy vòng đời 30-50 năm</td><td>Chủ đề học về chi phí vòng đời và quỹ bảo trì.</td><td>Tạo ngân sách bảo trì, thay thế, cây xanh và sửa chữa định kỳ.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Tiêu chí đánh giá nhà sau 1-5-10 năm</td><td>Tư duy vòng đời 30-50 năm</td><td>Chủ đề học về tiêu chí đánh giá nhà sau 1-5-10 năm.</td><td>Đo nhà bằng sức khỏe, tiện nghi, chi phí, khả năng sửa, cây và niềm vui sống.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr><tr><td>Di sản sống: giữ tinh thần nhà vườn qua thế hệ</td><td>Tư duy vòng đời 30-50 năm</td><td>Chủ đề học về di sản sống: giữ tinh thần nhà vườn qua thế hệ.</td><td>Biến ngôi nhà thành hệ thống ký ức, chăm sóc và thích nghi lâu dài.</td><td>Tôi cần bằng chứng gì trong dự án thật?</td></tr></tbody></table></div></article>

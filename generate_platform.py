@@ -535,6 +535,9 @@ Sau module này, bạn nên tạo được một trang ghi chú dự án gồm: 
 
 
 def make_build_script():
+    current_build_script = ROOT / "build_platform_html.py"
+    if current_build_script.exists():
+        return current_build_script.read_text(encoding="utf-8")
     return r'''
 from pathlib import Path
 from html import escape

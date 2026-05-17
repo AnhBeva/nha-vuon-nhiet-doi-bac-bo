@@ -47,11 +47,14 @@ Sau khi học, bạn có thể:
 | `README.md` | Giới thiệu nền tảng, cách học, cách dựng website. |
 | `ban-do-nha-vuon-bac-bo.md` | Bản đồ lĩnh vực và nguyên lý nền tảng. |
 | `giao-trinh-nha-vuon-bac-bo.md` | Lộ trình 72 module. |
+| `hinh-anh-truc-quan.md` | Bộ ảnh photorealistic theo 8 phần học chính. |
 | `thuat-ngu-nha-vuon-bac-bo.md` | Glossary thuật ngữ. |
 | `cong-cu-thuc-hanh.md` | Checklist, worksheet, lịch bảo trì. |
 | `Module-*.md` | 72 bài học chuyên sâu. |
 | `build_platform_html.py` | Script dựng website từ Markdown. |
 | `index.html` | Website tĩnh để học ngay. |
+| `assets/lumi-logo-2022.png` | Logo Lumi chính thức dùng trong header website. |
+| `assets/visuals/chapters/*.png` | 8 ảnh chapter photorealistic cho website. |
 
 ## Ranh giới trách nhiệm
 
